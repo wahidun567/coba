@@ -19,4 +19,13 @@ class KeluargaModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function Search($keyword)
+    {
+        // $builder = $this->table('keluarga');
+        // $builder->like('nama_lengkap', $keyword);
+        // return $builder;
+
+        // return $this->table('keluarga')->like('nama_lengkap', $keyword_keluarga)->orlike('nik', $keyword_keluarga);
+        return $this->table('keluarga')->like('nama_lengkap', $keyword)->orLike('nik',$keyword);
+    }
 }

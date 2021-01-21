@@ -1,11 +1,11 @@
 .sampul{
     width: 70px;
 }
-.table > tbody > tr > * {
+.table > thead > tr > * {
     vertical-align: middle;
     text-align: center;
 }
-.table > thead > tr > * {
+.table > tbody > tr > * {
     vertical-align: middle;
     text-align: center;
 }

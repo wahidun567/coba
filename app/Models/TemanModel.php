@@ -19,4 +19,8 @@ class TemanModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function Search($keyword)
+    {
+        return $this->table('keluarga')->like('nama_lengkap', $keyword);
+    }
 }

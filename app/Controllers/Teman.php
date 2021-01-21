@@ -13,10 +13,21 @@ class Teman extends BaseController
     }
     public function index()
     {
+        $currentPage = $this->request->getVar('page_teman') ? $this->request->getVar('page_teman') : 1;
+
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $teman = $this->temanModel->Search($keyword);
+        } else {
+            $teman = $this->temanModel;
+        }
         // $teman = $this->temanModel->findAll();
         $data = [
             'title' => 'Data Pertemanan',
-            'teman' => $this->temanModel->getTeman()
+            // 'teman' => $this->temanModel->getTeman(),
+            'teman' => $teman->paginate(6, 'teman'),
+            'pager' => $this->temanModel->pager,
+            'currentPage' => $currentPage
         ];
 
 

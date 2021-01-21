@@ -39,12 +39,15 @@ $routes->get('/keluarga/index', 'Keluarga::index');
 $routes->get('/teman/index', 'teman::index');
 $routes->get('keluarga/create', 'Keluarga::create');
 $routes->get('teman/create', 'Teman::create');
+$routes->get('orang/index', 'Orang::index');
+
 // $routes->get('/keluarga/editKeluarga','keluarga::save');
 
-
-
+// $routes->get('/orang/update/(:num)', 'orang::update/$1');
+$routes->get('/orang/edit/(:num)', 'orang::edit/$1');
 $routes->get('/keluarga/edit/(:segment)', 'keluarga::edit/$1');
 $routes->get('/teman/edit/(:segment)', 'teman::edit/$1');
+$routes->delete('/orang/(:num)', 'orang::delete/$1');
 $routes->delete('/teman/(:num)', 'teman::delete/$1');
 $routes->delete('/keluarga/(:num)', 'keluarga::delete/$1');
 $routes->get('/keluarga/(:any)', 'Keluarga::detail/$1');

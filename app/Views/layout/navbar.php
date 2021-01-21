@@ -16,15 +16,18 @@
                     <a class="nav-link" href="<?= base_url('/pages/contact') ?>">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/keluarga/index') ?>">Data Keluarga</a>
+                    <a class="nav-link" href="<?= base_url('/keluarga/index') ?>">Daftar Keluarga</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/teman/index') ?>">Data Pertemanan</a>
+                    <a class="nav-link" href="<?= base_url('/teman/index') ?>">Datar Pertemanan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/orang/index') ?>">Daftar Orang</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+                <button class="btn btn-outline-success" type="submit" name="submit">Cari</button>
             </form>
         </div>
     </div>

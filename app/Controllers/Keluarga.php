@@ -14,11 +14,21 @@ class Keluarga extends BaseController
 
     public function index()
     {
+        $currentPage = $this->request->getVar('page_keluarga') ? $this->request->getVar('page_keluarga') : 1;
+        // d($this->request->getVar('keyword'));
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $keluarga = $this->keluargaModel->search($keyword);
+        } else {
+            $keluarga = $this->keluargaModel;
+        }
         //     $keluarga = $this->keluargaModel->findAll();
-
         $data = [
             'title' => 'Data Keluarga',
-            'keluarga' => $this->keluargaModel->getKeluarga()
+            // 'keluarga' => $this->keluargaModel->getKeluarga(),
+            'keluarga' => $keluarga->paginate(6, 'keluarga'),
+            'pager' => $this->keluargaModel->pager,
+            'currentPage' => $currentPage
         ];
         // Connect database dengan manual
         // $db = \Config\Database::connect();
