@@ -28,7 +28,7 @@
         <label for="jenisKelamin" class="col-sm-2 col-form-label">Jenis-Kelamin</label>
         <div class="col-sm-10">
             <select class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>" id="jenisKelamin" name="jenis_kelamin" aria-label="Default select example">
-                <option selected value="<?= $keluarga['jenis_kelamin']; ?>">Tekan Ini Untuk Memilih Menu</option>
+                <option selected value="<?= (old('jenis_kelamin')) ? old('jenis_kelamin') : $keluarga['jenis_kelamin']; ?>">Tekan Ini Untuk Memilih Menu</option>
                 <option>Laki-Laki</option>
                 <option>Perempuan</option>
             </select>

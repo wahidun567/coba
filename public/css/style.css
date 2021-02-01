@@ -9,3 +9,17 @@
     vertical-align: middle;
     text-align: center;
 }
+
+/* buat searching  */
+.nav-link{
+    transition: 0.7s;
+}
+.nav-link::after{
+    transition: 0.6s;
+}
+
+/* menu buat memperluar area dropdown hover */
+.dropdown-menu li a:hover{
+    background-color: rgb(118, 180, 255);
+    color: #fff;
+}

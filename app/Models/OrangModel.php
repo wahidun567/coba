@@ -10,14 +10,6 @@ class OrangModel extends Model
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
     protected $allowedFields = ['nama', 'alamat'];
-
-    public function getOrang($id = false)
-    {
-        if ($id == false) {
-            return $this->findAll();
-        }
-        return $this->where(['id' => $id])->first();
-    }
     
     public function search($keyword)
     {

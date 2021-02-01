@@ -29,4 +29,10 @@ class pages extends BaseController
         ];
         return view('pages/contact',$data);
     }
+    public function portofolio(){
+        $data = [
+            'title'=>'Portofolio | Muhammad Nur Wahid'
+        ];
+        return view('pages/portofolio',$data);
+    }
 }

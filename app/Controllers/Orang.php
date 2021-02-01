@@ -74,35 +74,20 @@ class Orang extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to('/orang');
     }
+
+
+
     public function edit($id)
     {
         $data = [
             'title' => 'Form Ubah Daftar Orang',
             'validation' => \config\Services::validation(),
-            'orang' => $this->orangModel->getOrang($id)
+            'orang' => $this->orangModel->find($id)
         ];
         return view('aksi/editOrang', $data);
     }
     public function update($id)
     {
-        // if (!$this->validate([
-        //     'nama' => [
-        //         'rules' => 'required|is_unique[orang.nama]',
-        //         'errors' => [
-        //             'required' => 'Nama lengkap harus di isi !',
-        //             'is_unique' => 'Nama lengkap sudah terdaftar'
-        //         ]
-        //     ],
-        //     'alamat' => [
-        //         'rules' => 'required[orang.alamat]',
-        //         'errors' => [
-        //             'required' => 'Alamat harus di isi !'
-        //         ]
-        //     ]
-        // ])) {
-        //     return redirect()->to('/orang/edit/' . $this->request->getVar('id'))->withInput();
-        // }
-
         $this->orangModel->save([
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
@@ -111,41 +96,4 @@ class Orang extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil diubah');
         return redirect()->to('/orang');
     }
-
-
-    // public function update($id)
-    // {
-    //     // dd($this->request->getVar());
-    //     $orangLama = $this->orangModel->getOrang($this->request->getVar('nama'));
-    //     if ($orangLama['nama'] == $this->request->getVar('nama')) {
-    //         $rule_nama = 'required';
-    //     } else {
-    //         $rule_nama = 'required|is_unique[orang.nama]';
-    //     }
-
-    //     if (!$this->validate([
-    //         'nama' => [
-    //             'rules' => $rule_nama,
-    //             'errors' => [   
-    //                 'required' => '{field} harus di isi !',
-    //                 'is_unique' => '{field} sudah terdaftar'
-    //             ]
-    //         ],
-    //         'alamat' => [
-    //             'rules' => 'required[orang.alamat]',
-    //             'errors' => [
-    //                 'required' => '{field} harus di isi !'
-    //             ]
-    //         ]
-    //     ])) {
-    //         return redirect()->to('/orang/edit/' . $this->request->getVar('id'))->withInput();
-    //     }
-    //     $this->orangModel->save([
-    //         'id' => $id,
-    //         'nama' => $this->request->getVar('nama'),
-    //         'alamat' => $this->request->getVar('alamat'),
-    //     ]);
-    //     session()->setFlashdata('pesan', 'Data berhasil diubah');
-    //     return redirect()->to('/orang');
-    // }
 }

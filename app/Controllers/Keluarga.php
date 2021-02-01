@@ -58,7 +58,7 @@ class Keluarga extends BaseController
 
         return view('data/detail_keluarga', $data);
     }
-
+    
     public function create()
     {
         $data = [
